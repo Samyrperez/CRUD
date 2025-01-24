@@ -56,12 +56,11 @@
             <!-- type="hidden"  oculto -->
 
             <label for="nombre">Nombre del Usuario:</label>
-            <input type="text" id="nombreProducto" name="nombre" required>
+            <input type="text" id="nombreUsuario" name="nombre" required>
             <br>
 
             <label for="estado">Estado:</label>
-            <br>
-
+            
             <select id="estado" name="estado" >
                 <option value="Disponible">Disponible</option>
                 <option value="No Disponible">No Disponible</option>
