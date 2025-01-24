@@ -79,7 +79,7 @@ $(document).ready(function(){
     });
 
     
-// -------------------------------------------------------------------
+
 
 // Función  complementaria para el UPTADE: Primero uso este antes de actualizar
     $(document).on('click', '.btn-edit' , function(){
@@ -94,9 +94,35 @@ $(document).ready(function(){
         $("#estado").val(estado);
         $('#saveForm button[type="submit"]').text('Actualizar Usuario');
     });
+// -------------------------------------------------------------------
 
+// DELETE
 
+    $(document).on('click', '.btn-delete' , function(){
+        const id = $(this).data('id'); // Obtener el valor del boton precionado
+        console.log('ID capturado:', id);
 
+        // Pedir una confirmacion antes de eliminar
+        if (confirm("¿Estas seguro que deseas eliminar este usuario?")){
+            $.ajax({
+                url: "delete.php",
+                method: "POST",
+                data: {id: 'id'},
+                seccess: function(response){
+                    console.log("Respuesta: ", response);
+                    if (response === 'Registro eliminado exitosamente.') {
+                        $("#dataTable tbody").html("");
+                        all("", ""); 
+                    } else {
+                        alert("Error al eliminar el producto: " + response);
+                    }
+                },
+                error: function(){
+                    console.log("Error al realizar la solicitud.");
+                    alert('Hubo un error al procesar la solicitud.');
+                }
+            });
+        }
+    });
 
-
-})
+});
