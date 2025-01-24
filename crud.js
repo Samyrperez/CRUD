@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     function limpiarFormulario() {
-        $('#nombreUroducto').val("");
+        $('#nombreUsuario').val("");
         $('#estado').val(""); 
         $("#idUpdate").val("");    
         $('#saveForm button[type="submit"]').text('Crear Producto');   
@@ -12,8 +12,8 @@ $(document).ready(function(){
         e.preventDefault();
 
         let id = $('#idUpdate').val();
-        let nombre = $('#nombreCompleto').val();
-        let estado = ('#estado').val();
+        let nombre = $('#nombreUsuario').val();
+        let estado = $('#estado').val();
 
         $.ajax({
             url: "create.php",
@@ -34,7 +34,7 @@ $(document).ready(function(){
             }
         });
     });
-    
+
 
 
 
