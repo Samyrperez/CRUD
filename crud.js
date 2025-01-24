@@ -29,6 +29,10 @@ $(document).ready(function(){
             }
         });
     };
+// Boton para recargar la pagina
+    $("#reload").click(function(){
+        all();
+    });
 // -------------------------------------------------------------
 
 
@@ -40,7 +44,7 @@ $(document).ready(function(){
     };
 
     // -----------------------------------------------------
-    // Función CREATE
+    // Función CREATE y UPDATE
     $('#saveForm').on('submit' , function (e){
         e.preventDefault();
 
@@ -82,11 +86,11 @@ $(document).ready(function(){
         const id = $(this).data('id');
         console.log('ID capturado: ',id);
 
-        const nombre = $(`#nombreUsuario_${id}`).text(); // Recuperamos el valor del <td> de la tabla
+        const nombre = $(`#nombre_${id}`).text(); // Recuperamos el valor del <td> de la tabla
         const estado = $(`#estado_${id}`).text();
 
         $("#idUpdate").val(id);
-        $("#nombre").val(nombre);
+        $("#nombreUsuario").val(nombre);
         $("#estado").val(estado);
         $('#saveForm button[type="submit"]').text('Actualizar Usuario');
     });

@@ -3,15 +3,15 @@
 include "db.php";
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : null;
-$nombre = isset($_GET['nombre']) ? $conn->real_escape_string($_GET['id']) : null;
+$nombre = isset($_GET['nombre']) ? $conn->real_escape_string($_GET['nombre']) : null;
 
 $sql = "SELECT * FROM datos_usuarios WHERE 1";
 
 if ($id){
-    $sql .= "AND id = $id ";
+    $sql .= " AND id = $id";
 } 
 if ($nombre){
-    $sql .= "AND nombre LIKE '%$nombre%'";
+    $sql .= " AND nombre LIKE '%$nombre%'";
 }
 
 $result = $conn->query($sql);

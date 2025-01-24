@@ -48,6 +48,9 @@
                 -->
                 </tbody>
             </table>
+
+            <button id="reload">Recargar Tabla</button>
+
         </div>
 
         <div class="create">
