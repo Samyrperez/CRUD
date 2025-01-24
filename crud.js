@@ -1,10 +1,10 @@
 $(document).ready(function(){
 // -----------------------------------------------------------
-    // READ
+    // READ---
     all("", "");
 
     $('#searchForm').on('submit' , function(e){
-        e.prevenDefault();
+        e.preventDefault();
         $("#dataTable tbody").html("");
 
         // obtener los valores de los campos de entrada
@@ -61,6 +61,7 @@ $(document).ready(function(){
 
                 // limpiar la tabla actual y actualizarla
                 $("#dataTable tbody").html("");
+                all("", "");
             },
             error: function(){
                 $('#searchResults').html('<p>Ocurrio un error al procesar la solicitud. </p>');
@@ -68,6 +69,7 @@ $(document).ready(function(){
         });
     });
 
+    
 // -------------------------------------------------------------------
 
 
