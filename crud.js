@@ -48,8 +48,13 @@ $(document).ready(function(){
         let nombre = $('#nombreUsuario').val();
         let estado = $('#estado').val();
 
+        let URL = "create.php";
+        if (id != ""){
+            URL = "update.php";
+        }
+
         $.ajax({
-            url: "create.php",
+            url: URL,
             method: 'POST',
             data: {
                 id: id,
@@ -72,7 +77,19 @@ $(document).ready(function(){
     
 // -------------------------------------------------------------------
 
+// Función  complementaria para el UPTADE: Primero uso este antes de actualizar
+    $(document).on('click', '.btn-edit' , function(){
+        const id = $(this).data('id');
+        console.log('ID capturado: ',id);
 
+        const nombre = $(`#nombreUsuario_${id}`).text(); // Recuperamos el valor del <td> de la tabla
+        const estado = $(`#estado_${id}`).text();
+
+        $("#idUpdate").val(id);
+        $("#nombre").val(nombre);
+        $("#estado").val(estado);
+        $('#saveForm button[type="submit"]').text('Actualizar Usuario');
+    });
 
 
 
