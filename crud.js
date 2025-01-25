@@ -23,6 +23,7 @@ $(document).ready(function(){
             },
             success: function(response){
                 $('#dataTable tbody').html(response);
+                
             },
             error: function(){
                 $("#searchResults").html('<p>Ocurrió un error al procesar la solicitúd.</p>');
@@ -107,8 +108,8 @@ $(document).ready(function(){
             $.ajax({
                 url: "delete.php",
                 method: "POST",
-                data: {id: 'id'},
-                seccess: function(response){
+                data: {id: id},
+                success: function(response){
                     console.log("Respuesta: ", response);
                     if (response === 'Registro eliminado exitosamente.') {
                         $("#dataTable tbody").html("");
